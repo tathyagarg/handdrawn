@@ -150,7 +150,12 @@
     }
   }
 
+  div:has(> img[src^="https://pbs.twimg.com/profile_images/"])>div {
+    position: relative;
 
+    border-radius: 100%;
+    border: 2px solid black;
+  }
 
   * {
     text-transform: lowercase;
