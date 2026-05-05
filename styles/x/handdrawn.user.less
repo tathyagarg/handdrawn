@@ -283,20 +283,37 @@
   }
 
   div[aria-label="Timeline: Explore"]>div>div {
-    & div[data-testid="trend"]::before {
-      content: '';
-      position: absolute;
+    & div[data-testid="trend"] {
 
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
 
-      pointer-events: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        pointer-events: none;
+      }
+
+      &::before {
+        animation: border-swap 2.5s steps(1) infinite;
+      }
+
+      &::after {
+        animation: border-swap 2.5s steps(1) infinite reverse;
+      }
     }
 
     &:nth-child(3n) div[data-testid="trend"]::before {
-      animation: line-swap 2.5s steps(1) infinite;
+      border-image: var(--squiggly-line-1) !important;
+      border-image-slice: 0 0 100 0 !important;
+    }
+
+    &:nth-child(3n) div[data-testid="trend"]::after {
+      border-image: var(--squiggly-line-2) !important;
       border-image-slice: 0 0 100 0 !important;
     }
 
@@ -305,8 +322,18 @@
       border-image-slice: 0 0 100 0 !important;
     }
 
+    &:nth-child(3n+1) div[data-testid="trend"]::after {
+      border-image: var(--squiggly-line-3) !important;
+      border-image-slice: 0 0 100 0 !important;
+    }
+
     &:nth-child(3n+2) div[data-testid="trend"]::before {
       border-image: var(--squiggly-line-3) !important;
+      border-image-slice: 0 0 100 0 !important;
+    }
+
+    &:nth-child(3n+2) div[data-testid="trend"]::after {
+      border-image: var(--squiggly-line-1) !important;
       border-image-slice: 0 0 100 0 !important;
     }
   }
