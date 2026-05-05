@@ -21,6 +21,7 @@
   :root {
     --squiggly-border-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10, 75 30, 77 50 C 78 62, 77 70, 76 76 M 76 76 C 60 78, 40 75, 20 77 C 12 78, 6 77, 4 76 M 4 76 C 2 60, 5 40, 3 20 C 2 12, 3 6, 4 4' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
     --squiggly-border-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 4 C 30 2, 50 6, 76 4 M 76 4 C 78 14, 74 38, 76 76 M 76 76 C 62 78, 38 74, 22 78 C 14 80, 6 76, 4 76 M 4 76 C 2 55, 6 30, 4 4' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+    --squiggly-border-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 6 C 18 0, 34 10, 48 4 C 62 -2, 70 8, 76 6 M 76 6 C 80 22, 72 34, 76 50 C 80 66, 70 72, 76 76 M 76 76 C 58 80, 44 70, 30 76 C 16 82, 10 72, 4 76 M 4 76 C 0 58, 8 46, 4 30 C 0 14, 10 10, 4 6' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
 
     --fuckup: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><defs><filter id='handdrawn' x='-5%25' y='-20%25' width='110%25' height='140%25'><feTurbulence type='fractalNoise' baseFrequency='0.04 0.07' numOctaves='3' seed='2' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='3' xChannelSelector='R' yChannelSelector='G'/></filter></defs></svg>#handdrawn");
   }
@@ -42,7 +43,6 @@
         bottom: 2px;
         pointer-events: none;
         z-index: 10;
-        border: 10px solid transparent;
       }
 
       &::before {
@@ -119,7 +119,7 @@
     right: -0.5em;
     bottom: -0.5em;
 
-    border-image: var(--squiggly-border-1);
+    border-image: var(--squiggly-border-3);
     pointer-events: none;
   }
 
@@ -157,6 +157,7 @@
     border: 2px solid black;
   }
 
+  /* Home icon */
   a[href="/home"]>div>div:first-child {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABFCAYAAADzT0AXAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oFBQg3E56fXVQAAAGtSURBVHja7ZrdroQgDISdhvd/vvM2PbebTVwBmdIfSPbO1fI5MwUV176hncfBsihxDsN8iKNa4AGeOFEHvCgKDoBgAAAyARlVxhYonjLEdZBZdBSQlOUayCrZm0HBBhiz1zXJFAkCI2yGsEHQVYKgqlDW+cUARqi9EYLmBc06IN4VbFQFdlvmuxiLTkK5hkQo0vKRARbKdff6YklNkgTGsu4j7AtEg4JFJ0YAAFgJRAOAWFIvEsJ4VbckhTFdI5LCmO6KSA5jGIoUgDHkAGH6MUCe6AyQbMronqxWtcnnPDG4vEV2KBXf3P3MEwxufqKvQZ4i4mrF1PF488/L7g6F4M3zhKwBcwcEwW3y2FVbUWfcfrVUFcgtpDYhPxCk7KbdN2MPM9YTS4cEgGF53i6F4OK3XlhO+q1ClDzxX8eat3nLLoNJ/8NSNcwMCbnCFaLkrwpArgPEPkxDAdGjkGOZAySq/5VhcXFUfBiF6LGM3wH2f8Vp8Wfp7iWLKrVdPUCKKQQMlWRXCCophBLC54nZ12gvJ4lsFmrOVKC7FciyzN/NBJ5+IVI4y+auy97/LnthU4GXq+AAAAAASUVORK5CYII=");
     background-size: 100% 100%;
@@ -166,18 +167,46 @@
     }
   }
 
-  div[aria-label="Home timeline"]>div:nth-child(3)::after {
-    content: '';
-    position: absolute;
+  /* Post box */
+  div[aria-label="Home timeline"]>div:nth-child(3) {
+    position: relative;
 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    --deg: 1deg;
+    animation: rotator 2.5s steps(1) infinite;
 
-    z-index: 20;
+    z-index: 100;
 
-    border-image: var(--squiggly-border-1);
+    &::after {
+      content: '';
+      position: absolute;
+
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      z-index: 20;
+
+      border-image: var(--squiggly-border-3);
+      pointer-events: none;
+    }
+  }
+
+  @keyframes rotator {
+
+    0%,
+    51% {
+      transform: rotateZ(var(--deg));
+    }
+
+    51%,
+    100% {
+      transform: rotateZ(calc(-1 * var(--deg)));
+    }
+  }
+
+  button[data-testid="tweetButtonInline"] {
+    filter: var(--fuckup);
   }
 
   * {
