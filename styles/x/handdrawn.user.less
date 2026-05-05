@@ -23,7 +23,17 @@
     --squiggly-border-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 4 C 30 2, 50 6, 76 4 M 76 4 C 78 14, 74 38, 76 76 M 76 76 C 62 78, 38 74, 22 78 C 14 80, 6 76, 4 76 M 4 76 C 2 55, 6 30, 4 4' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
     --squiggly-border-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 6 C 18 0, 34 10, 48 4 C 62 -2, 70 8, 76 6 M 76 6 C 80 22, 72 34, 76 50 C 80 66, 70 72, 76 76 M 76 76 C 58 80, 44 70, 30 76 C 16 82, 10 72, 4 76 M 4 76 C 0 58, 8 46, 4 30 C 0 14, 10 10, 4 6' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
 
+    --squiggly-line-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 10 C 10 2, 18 18, 26 10 C 34 2, 42 18, 50 10 C 58 2, 66 18, 74 10' stroke='currentColor' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+    --squiggly-line-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 12 C 8 0, 16 20, 24 8 C 32 -2, 40 18, 48 10 C 56 2, 64 22, 72 12' stroke='currentColor' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+    --squiggly-line-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 8 C 12 16, 20 -4, 30 10 C 40 24, 50 -2, 60 12 C 68 20, 74 6, 78 10' stroke='currentColor' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+
+    /*
+			adds a trippy effect to whatever this is applied to!
+			use sparingly and with caution - this is very compute heavy!
+		*/
     --fuckup: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><defs><filter id='handdrawn' x='-5%25' y='-20%25' width='110%25' height='140%25'><feTurbulence type='fractalNoise' baseFrequency='0.04 0.07' numOctaves='3' seed='2' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='3' xChannelSelector='R' yChannelSelector='G'/></filter></defs></svg>#handdrawn");
+
+    --hd-blue: #00f;
   }
 
   #drawn(@animateBorders);
@@ -31,7 +41,6 @@
   #drawn(yes) {
     div:has(> div > div > article) {
       position: relative;
-      filter: var(--fuckup);
 
       &::before,
       &::after {
@@ -87,7 +96,6 @@
   #drawn(no) {
     div:has(> div > div > article) {
       position: relative;
-      filter: var(--fuckup);
 
       &::before {
         content: '';
@@ -133,21 +141,7 @@
 
   a,
   a:not([aria-label="Post"])>* {
-    color: #00f !important;
-  }
-
-  div[aria-label="Trending"]>div {
-    & form>div>div {
-      border: none !important;
-      border-image: var(--squiggly-border-1) !important;
-    }
-
-    &>div:nth-child(3),
-    &>div:nth-child(4),
-    &>div:nth-child(5) {
-      border: none !important;
-      border-image: var(--squiggly-border-2) !important;
-    }
+    color: var(--hd-blue) !important;
   }
 
   div:has(> img[src^="https://pbs.twimg.com/profile_images/"])>div {
@@ -164,44 +158,6 @@
 
     & svg {
       visibility: hidden;
-    }
-  }
-
-  /* Post box */
-  div[aria-label="Home timeline"]>div:nth-child(3) {
-    position: relative;
-
-    --deg: 1deg;
-    animation: rotator 2.5s steps(1) infinite;
-
-    z-index: 100;
-
-    &::after {
-      content: '';
-      position: absolute;
-
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      z-index: 20;
-
-      border-image: var(--squiggly-border-3);
-      pointer-events: none;
-    }
-  }
-
-  @keyframes rotator {
-
-    0%,
-    51% {
-      transform: rotateZ(var(--deg));
-    }
-
-    51%,
-    100% {
-      transform: rotateZ(calc(-1 * var(--deg)));
     }
   }
 
@@ -247,8 +203,111 @@
     border-image: var(--squiggly-border-1);
   }
 
+  nav div[role="tab"] div:has(> span)>div,
+  nav div[role="presentation"] div:has(> span)>div {
+    background-color: var(--hd-blue) !important;
+  }
+
   * {
     text-transform: lowercase;
     font-family: "Coming Soon", "Comic Sans MS", cursive !important;
+  }
+}
+
+@-moz-document url("https://x.com/home") {
+
+  /* Post box */
+  div[aria-label="Home timeline"]>div:nth-child(3) {
+    position: relative;
+
+    --deg: 1deg;
+    animation: rotator 2.5s steps(1) infinite;
+
+    z-index: 100;
+
+    &::after {
+      content: '';
+      position: absolute;
+
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      z-index: 20;
+
+      border-image: var(--squiggly-border-3);
+      pointer-events: none;
+    }
+  }
+
+  @keyframes rotator {
+
+    0%,
+    50% {
+      transform: rotateZ(var(--deg));
+    }
+
+    51%,
+    100% {
+      transform: rotateZ(calc(-1 * var(--deg)));
+    }
+  }
+
+  div[aria-label="Trending"]>div {
+    & form>div>div {
+      border: none !important;
+      border-image: var(--squiggly-border-1) !important;
+    }
+
+    &>div:nth-child(3),
+    &>div:nth-child(4),
+    &>div:nth-child(5) {
+      border: none !important;
+      border-image: var(--squiggly-border-2) !important;
+    }
+  }
+}
+
+@-moz-document url-prefix("https://x.com/explore/tabs/"), url-prefix("https://x.com/explore") {
+
+  div[aria-label="Trending"]>div>div:nth-child(2),
+  div[aria-label="Trending"]>div>div:nth-child(3) {
+    border: none !important;
+    border-image: var(--squiggly-border-2) !important;
+  }
+
+  form[aria-label="Search"]>div>div {
+    border: none !important;
+    border-image: var(--squiggly-border-2) !important;
+  }
+
+  div[aria-label="Timeline: Explore"]>div>div {
+    & div[data-testid="trend"]::before {
+      content: '';
+      position: absolute;
+
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      pointer-events: none;
+    }
+
+    &:nth-child(3n) div[data-testid="trend"]::before {
+      animation: line-swap 2.5s steps(1) infinite;
+      border-image-slice: 0 0 100 0 !important;
+    }
+
+    &:nth-child(3n+1) div[data-testid="trend"]::before {
+      border-image: var(--squiggly-line-2) !important;
+      border-image-slice: 0 0 100 0 !important;
+    }
+
+    &:nth-child(3n+2) div[data-testid="trend"]::before {
+      border-image: var(--squiggly-line-3) !important;
+      border-image-slice: 0 0 100 0 !important;
+    }
   }
 }
