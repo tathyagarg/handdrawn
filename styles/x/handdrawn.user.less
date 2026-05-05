@@ -12,12 +12,12 @@
 @preprocessor less
 @var select animateBorders "Animate Borders" ["yes:Yes*", "no:No"]
 ==/UserStyle== */
-@font-face {
-  font-family: 'Coming Soon';
-  src: url("https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap") format("woff2");
-}
-
 @-moz-document domain("x.com") {
+  @font-face {
+    font-family: 'Coming Soon';
+    src: url("https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap") format("woff2");
+  }
+
   :root {
     --squiggly-border-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10, 75 30, 77 50 C 78 62, 77 70, 76 76 M 76 76 C 60 78, 40 75, 20 77 C 12 78, 6 77, 4 76 M 4 76 C 2 60, 5 40, 3 20 C 2 12, 3 6, 4 4' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
     --squiggly-border-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 4 C 30 2, 50 6, 76 4 M 76 4 C 78 14, 74 38, 76 76 M 76 76 C 62 78, 38 74, 22 78 C 14 80, 6 76, 4 76 M 4 76 C 2 55, 6 30, 4 4' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
@@ -234,6 +234,17 @@
 
   div[role="group"] button>* {
     color: black !important;
+  }
+
+  div:has(> div[data-testid="GrokDrawerHeader"]),
+  div[data-testid="chat-drawer-main"] {
+    box-shadow: none;
+  }
+
+  div:has(> div[data-testid="GrokDrawerHeader"]),
+  div[data-testid="chat-drawer-main"]>div {
+    border: none;
+    border-image: var(--squiggly-border-1);
   }
 
   * {
