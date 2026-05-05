@@ -157,6 +157,29 @@
     border: 2px solid black;
   }
 
+  a[href="/home"]>div>div:first-child {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABFCAYAAADzT0AXAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oFBQg3E56fXVQAAAGtSURBVHja7ZrdroQgDISdhvd/vvM2PbebTVwBmdIfSPbO1fI5MwUV176hncfBsihxDsN8iKNa4AGeOFEHvCgKDoBgAAAyARlVxhYonjLEdZBZdBSQlOUayCrZm0HBBhiz1zXJFAkCI2yGsEHQVYKgqlDW+cUARqi9EYLmBc06IN4VbFQFdlvmuxiLTkK5hkQo0vKRARbKdff6YklNkgTGsu4j7AtEg4JFJ0YAAFgJRAOAWFIvEsJ4VbckhTFdI5LCmO6KSA5jGIoUgDHkAGH6MUCe6AyQbMronqxWtcnnPDG4vEV2KBXf3P3MEwxufqKvQZ4i4mrF1PF488/L7g6F4M3zhKwBcwcEwW3y2FVbUWfcfrVUFcgtpDYhPxCk7KbdN2MPM9YTS4cEgGF53i6F4OK3XlhO+q1ClDzxX8eat3nLLoNJ/8NSNcwMCbnCFaLkrwpArgPEPkxDAdGjkGOZAySq/5VhcXFUfBiF6LGM3wH2f8Vp8Wfp7iWLKrVdPUCKKQQMlWRXCCophBLC54nZ12gvJ4lsFmrOVKC7FciyzN/NBJ5+IVI4y+auy97/LnthU4GXq+AAAAAASUVORK5CYII=");
+    background-size: 100% 100%;
+
+    & svg {
+      visibility: hidden;
+    }
+  }
+
+  div[aria-label="Home timeline"]>div:nth-child(3)::after {
+    content: '';
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 20;
+
+    border-image: var(--squiggly-border-1);
+  }
+
   * {
     text-transform: lowercase;
     font-family: "Coming Soon", "Comic Sans MS", cursive !important;
