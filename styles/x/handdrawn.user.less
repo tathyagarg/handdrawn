@@ -106,6 +106,11 @@
       &:nth-child(2n+1)::before { border-image: var(--squiggly-border-2); }
     }
   }
+	
+  * {
+    text-transform: lowercase;
+    font-family: "Coming Soon", "Comic Sans MS", cursive !important;
+  }
   
   main > div > div > div > div::after {
     content: '';
@@ -185,11 +190,6 @@
   {
     background-color: var(--hd-blue) !important;
   }
-
-  * {
-    text-transform: lowercase;
-    font-family: "Coming Soon", "Comic Sans MS", cursive !important;
-  }
 }
 
 @-moz-document url("https://x.com/home") {
@@ -229,7 +229,8 @@
       border-image: var(--squiggly-border-1) !important;
     }
 
-    & > div:nth-child(3), & > div:nth-child(4), & > div:nth-child(5) {
+    & > div:nth-child(n + 3):not(:last-child):not(:has(aside)),
+	& > div > div:has(aside) {
       border: none !important;
       border-image: var(--squiggly-border-2) !important;
     }
