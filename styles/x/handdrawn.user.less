@@ -11,290 +11,363 @@
 
 @preprocessor less
 @var select animateBorders "Animate Borders" ["yes:Yes*", "no:No"]
+@var select theme "Theme" ["dark:Dark*", "light:Light"]
 ==/UserStyle== */
 @-moz-document domain("x.com") {
-  @font-face {
-    font-family: 'Coming Soon';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/comingsoon/v20/qWcuB6mzpYL7AJ2VfdQR1t-VWDnRsDkg.woff2) format('woff2');
-  }
+	@font-face {
+		font-family: 'Coming Soon';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url(https://fonts.gstatic.com/s/comingsoon/v20/qWcuB6mzpYL7AJ2VfdQR1t-VWDnRsDkg.woff2) format('woff2');
+	}
 
-  :root {
-    @media (prefers-color-scheme: light) {
-      --squiggly-border-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10, 75 30, 77 50 C 78 62, 77 70, 76 76 M 76 76 C 60 78, 40 75, 20 77 C 12 78, 6 77, 4 76 M 4 76 C 2 60, 5 40, 3 20 C 2 12, 3 6, 4 4' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-      --squiggly-border-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 4 C 30 2, 50 6, 76 4 M 76 4 C 78 14, 74 38, 76 76 M 76 76 C 62 78, 38 74, 22 78 C 14 80, 6 76, 4 76 M 4 76 C 2 55, 6 30, 4 4' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-      --squiggly-border-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 6 C 18 0, 34 10, 48 4 C 62 -2, 70 8, 76 6 M 76 6 C 80 22, 72 34, 76 50 C 80 66, 70 72, 76 76 M 76 76 C 58 80, 44 70, 30 76 C 16 82, 10 72, 4 76 M 4 76 C 0 58, 8 46, 4 30 C 0 14, 10 10, 4 6' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+	#root(@theme);
 
-      --squiggly-line-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 10 C 10 2, 18 18, 26 10 C 34 2, 42 18, 50 10 C 58 2, 66 18, 74 10' stroke='%23000' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-      --squiggly-line-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 12 C 8 0, 16 20, 24 8 C 32 -2, 40 18, 48 10 C 56 2, 64 22, 72 12' stroke='%23000' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-      --squiggly-line-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 8 C 12 16, 20 -4, 30 10 C 40 24, 50 -2, 60 12 C 68 20, 74 6, 78 10' stroke='%23000' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+	#root(dark) {
+		:root {
+			--squiggly-border-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10, 75 30, 77 50 C 78 62, 77 70, 76 76 M 76 76 C 60 78, 40 75, 20 77 C 12 78, 6 77, 4 76 M 4 76 C 2 60, 5 40, 3 20 C 2 12, 3 6, 4 4' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+			--squiggly-border-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 4 C 30 2, 50 6, 76 4 M 76 4 C 78 14, 74 38, 76 76 M 76 76 C 62 78, 38 74, 22 78 C 14 80, 6 76, 4 76 M 4 76 C 2 55, 6 30, 4 4' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+			--squiggly-border-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 6 C 18 0, 34 10, 48 4 C 62 -2, 70 8, 76 6 M 76 6 C 80 22, 72 34, 76 50 C 80 66, 70 72, 76 76 M 76 76 C 58 80, 44 70, 30 76 C 16 82, 10 72, 4 76 M 4 76 C 0 58, 8 46, 4 30 C 0 14, 10 10, 4 6' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
 
-      --home-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABFCAYAAADzT0AXAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oFBQg3E56fXVQAAAGtSURBVHja7ZrdroQgDISdhvd/vvM2PbebTVwBmdIfSPbO1fI5MwUV176hncfBsihxDsN8iKNa4AGeOFEHvCgKDoBgAAAyARlVxhYonjLEdZBZdBSQlOUayCrZm0HBBhiz1zXJFAkCI2yGsEHQVYKgqlDW+cUARqi9EYLmBc06IN4VbFQFdlvmuxiLTkK5hkQo0vKRARbKdff6YklNkgTGsu4j7AtEg4JFJ0YAAFgJRAOAWFIvEsJ4VbckhTFdI5LCmO6KSA5jGIoUgDHkAGH6MUCe6AyQbMronqxWtcnnPDG4vEV2KBXf3P3MEwxufqKvQZ4i4mrF1PF488/L7g6F4M3zhKwBcwcEwW3y2FVbUWfcfrVUFcgtpDYhPxCk7KbdN2MPM9YTS4cEgGF53i6F4OK3XlhO+q1ClDzxX8eat3nLLoNJ/8NSNcwMCbnCFaLkrwpArgPEPkxDAdGjkGOZAySq/5VhcXFUfBiF6LGM3wH2f8Vp8Wfp7iWLKrVdPUCKKQQMlWRXCCophBLC54nZ12gvJ4lsFmrOVKC7FciyzN/NBJ5+IVI4y+auy97/LnthU4GXq+AAAAAASUVORK5CYII=");
-    }
-    
-    @media (prefers-color-scheme: dark) {
-      --squiggly-border-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10, 75 30, 77 50 C 78 62, 77 70, 76 76 M 76 76 C 60 78, 40 75, 20 77 C 12 78, 6 77, 4 76 M 4 76 C 2 60, 5 40, 3 20 C 2 12, 3 6, 4 4' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-      --squiggly-border-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 4 C 30 2, 50 6, 76 4 M 76 4 C 78 14, 74 38, 76 76 M 76 76 C 62 78, 38 74, 22 78 C 14 80, 6 76, 4 76 M 4 76 C 2 55, 6 30, 4 4' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-      --squiggly-border-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 6 C 18 0, 34 10, 48 4 C 62 -2, 70 8, 76 6 M 76 6 C 80 22, 72 34, 76 50 C 80 66, 70 72, 76 76 M 76 76 C 58 80, 44 70, 30 76 C 16 82, 10 72, 4 76 M 4 76 C 0 58, 8 46, 4 30 C 0 14, 10 10, 4 6' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-    
-      --squiggly-line-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 10 C 10 2, 18 18, 26 10 C 34 2, 42 18, 50 10 C 58 2, 66 18, 74 10' stroke='%23fff' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-      --squiggly-line-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 12 C 8 0, 16 20, 24 8 C 32 -2, 40 18, 48 10 C 56 2, 64 22, 72 12' stroke='%23fff' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-      --squiggly-line-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 8 C 12 16, 20 -4, 30 10 C 40 24, 50 -2, 60 12 C 68 20, 74 6, 78 10' stroke='%23fff' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;      
+			--squiggly-line-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 10 C 10 2, 18 18, 26 10 C 34 2, 42 18, 50 10 C 58 2, 66 18, 74 10' stroke='%23fff' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+			--squiggly-line-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 12 C 8 0, 16 20, 24 8 C 32 -2, 40 18, 48 10 C 56 2, 64 22, 72 12' stroke='%23fff' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+			--squiggly-line-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 8 C 12 16, 20 -4, 30 10 C 40 24, 50 -2, 60 12 C 68 20, 74 6, 78 10' stroke='%23fff' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
 
-      --home-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABFCAYAAADzT0AXAAACCElEQVR4nO2awY7DIAxEM6j//8uzqrSHqCoEAza26Zx6SBPzMjYmgGuTSLLnOgC4DFUuxzB2aAsQiROs4ZkD4ZcBPqWFJZTtDsENxvv3bqfAqzNYAaBdZLc7xJvUHcLJNz1Sc9w6hAts/+1azXqiBoQLg65B0QCjAoSNQK07T6kQCQQNZp4SyRVo9CmugHDz2mTl84u2M96afcZsHBJBKwAog9BK0eWzDP61+r7fnqNx36VAYDyl1p43kz5DA6BxO20ZU8kAo6YRp5RI0+uIpDGXLDDQKOaS2IeX4BFTpSfekg3GWzNOKdlgzMZYMsJoxfrkkpIVxiiUkhlGS7Vxdk27CA5DUmRLdhhSIWJLPqqecgDPRxN2QDlu5w4P9QSiPh+xHPI5tnv8tXG/roPE2db9RL2e0oLOl/2r9VgTeAMSrYbU4m+95KNqSM/65kggLUgiICS5Km28TvfqDuGCotzqJ1KcIJqV5sz36BAAom7W6suWloY/Mo9IYnWrPeJPmc0y+B+cdJA964/jDt1ZSgQEATtVqX6Lux1AEMhZ6Xf/pfqlzId+QLLsy7AjfdVPEI0qUu0xbd0jKFQNwUT69v5XDQic1p5UrTsjL+68qRfmMUB6FRYIBtL3+K1MWJx1jyRXnSqDNnTijarL0TQsVU+8L08uoOB+Wg40++rOICmUuqheN/Wm9x9DCliVlnDPqQAAAABJRU5ErkJggg==");
-    }
-    
-    /*
+			--home-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABFCAYAAADzT0AXAAACCElEQVR4nO2awY7DIAxEM6j//8uzqrSHqCoEAza26Zx6SBPzMjYmgGuTSLLnOgC4DFUuxzB2aAsQiROs4ZkD4ZcBPqWFJZTtDsENxvv3bqfAqzNYAaBdZLc7xJvUHcLJNz1Sc9w6hAts/+1azXqiBoQLg65B0QCjAoSNQK07T6kQCQQNZp4SyRVo9CmugHDz2mTl84u2M96afcZsHBJBKwAog9BK0eWzDP61+r7fnqNx36VAYDyl1p43kz5DA6BxO20ZU8kAo6YRp5RI0+uIpDGXLDDQKOaS2IeX4BFTpSfekg3GWzNOKdlgzMZYMsJoxfrkkpIVxiiUkhlGS7Vxdk27CA5DUmRLdhhSIWJLPqqecgDPRxN2QDlu5w4P9QSiPh+xHPI5tnv8tXG/roPE2db9RL2e0oLOl/2r9VgTeAMSrYbU4m+95KNqSM/65kggLUgiICS5Km28TvfqDuGCotzqJ1KcIJqV5sz36BAAom7W6suWloY/Mo9IYnWrPeJPmc0y+B+cdJA964/jDt1ZSgQEATtVqX6Lux1AEMhZ6Xf/pfqlzId+QLLsy7AjfdVPEI0qUu0xbd0jKFQNwUT69v5XDQic1p5UrTsjL+68qRfmMUB6FRYIBtL3+K1MWJx1jyRXnSqDNnTijarL0TQsVU+8L08uoOB+Wg40++rOICmUuqheN/Wm9x9DCliVlnDPqQAAAABJRU5ErkJggg==");
+		}
+	}
+
+	#root(light) {
+		:root {
+			--squiggly-border-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10, 75 30, 77 50 C 78 62, 77 70, 76 76 M 76 76 C 60 78, 40 75, 20 77 C 12 78, 6 77, 4 76 M 4 76 C 2 60, 5 40, 3 20 C 2 12, 3 6, 4 4' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+			--squiggly-border-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 4 C 30 2, 50 6, 76 4 M 76 4 C 78 14, 74 38, 76 76 M 76 76 C 62 78, 38 74, 22 78 C 14 80, 6 76, 4 76 M 4 76 C 2 55, 6 30, 4 4' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+			--squiggly-border-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M 4 6 C 18 0, 34 10, 48 4 C 62 -2, 70 8, 76 6 M 76 6 C 80 22, 72 34, 76 50 C 80 66, 70 72, 76 76 M 76 76 C 58 80, 44 70, 30 76 C 16 82, 10 72, 4 76 M 4 76 C 0 58, 8 46, 4 30 C 0 14, 10 10, 4 6' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+
+			--squiggly-line-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 10 C 10 2, 18 18, 26 10 C 34 2, 42 18, 50 10 C 58 2, 66 18, 74 10' stroke='%23000' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+			--squiggly-line-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 12 C 8 0, 16 20, 24 8 C 32 -2, 40 18, 48 10 C 56 2, 64 22, 72 12' stroke='%23000' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+			--squiggly-line-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M 2 8 C 12 16, 20 -4, 30 10 C 40 24, 50 -2, 60 12 C 68 20, 74 6, 78 10' stroke='%23000' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
+
+			--home-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABFCAYAAADzT0AXAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oFBQg3E56fXVQAAAGtSURBVHja7ZrdroQgDISdhvd/vvM2PbebTVwBmdIfSPbO1fI5MwUV176hncfBsihxDsN8iKNa4AGeOFEHvCgKDoBgAAAyARlVxhYonjLEdZBZdBSQlOUayCrZm0HBBhiz1zXJFAkCI2yGsEHQVYKgqlDW+cUARqi9EYLmBc06IN4VbFQFdlvmuxiLTkK5hkQo0vKRARbKdff6YklNkgTGsu4j7AtEg4JFJ0YAAFgJRAOAWFIvEsJ4VbckhTFdI5LCmO6KSA5jGIoUgDHkAGH6MUCe6AyQbMronqxWtcnnPDG4vEV2KBXf3P3MEwxufqKvQZ4i4mrF1PF488/L7g6F4M3zhKwBcwcEwW3y2FVbUWfcfrVUFcgtpDYhPxCk7KbdN2MPM9YTS4cEgGF53i6F4OK3XlhO+q1ClDzxX8eat3nLLoNJ/8NSNcwMCbnCFaLkrwpArgPEPkxDAdGjkGOZAySq/5VhcXFUfBiF6LGM3wH2f8Vp8Wfp7iWLKrVdPUCKKQQMlWRXCCophBLC54nZ12gvJ4lsFmrOVKC7FciyzN/NBJ5+IVI4y+auy97/LnthU4GXq+AAAAAASUVORK5CYII=");
+		}
+	}
+
+	:root {
+		/*
       adds a trippy effect to whatever this is applied to!
       use sparingly and with caution - this is very compute heavy!
     */
-    --fuckup: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><defs><filter id='handdrawn' x='-5%25' y='-20%25' width='110%25' height='140%25'><feTurbulence type='fractalNoise' baseFrequency='0.04 0.07' numOctaves='3' seed='2' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='3' xChannelSelector='R' yChannelSelector='G'/></filter></defs></svg>#handdrawn");
-    
-    /* Change this to be unique! */
-    --hd-blue: #00f;
-  }
+		--fuckup: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><defs><filter id='handdrawn' x='-5%25' y='-20%25' width='110%25' height='140%25'><feTurbulence type='fractalNoise' baseFrequency='0.04 0.07' numOctaves='3' seed='2' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='3' xChannelSelector='R' yChannelSelector='G'/></filter></defs></svg>#handdrawn");
 
-  #drawn(@animateBorders);
+		/* Change this to be unique! */
+		--hd-blue: #00f;
+	}
 
-  #drawn(yes) {
-    div:has(> div > div > article) {
-      position: relative;
-      
-      & div {
-        border-bottom-width: 0 !important;
-      }
+	#drawn(@animateBorders);
 
-      &::before, &::after {
-        content: '';
-        position: absolute;
-        top: 2px; left: 2px; right: 2px; bottom: 2px;
-        pointer-events: none;
-        z-index: 10;
-      }
+	#drawn(yes) {
+		div:has( > div > div > article) {
+			position: relative;
 
-      &::before { animation: border-swap 2.5s steps(1) infinite; }
-      &::after  { animation: border-swap 2.5s steps(1) infinite reverse; }
+			& div {
+				border-bottom-width: 0 !important;
+			}
 
-      &:nth-child(2n)::before  { border-image: var(--squiggly-border-1); }
-      &:nth-child(2n)::after   { border-image: var(--squiggly-border-2); }
-      &:nth-child(2n+1)::before { border-image: var(--squiggly-border-2); }
-      &:nth-child(2n+1)::after  { border-image: var(--squiggly-border-1); }
-    }
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				right: 2px;
+				bottom: 2px;
+				pointer-events: none;
+				z-index: 10;
+			}
 
-    @keyframes border-swap {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
-    }
-  }
+			&::before {
+				animation: border-swap 2.5s steps(1) infinite;
+			}
+			&::after {
+				animation: border-swap 2.5s steps(1) infinite reverse;
+			}
 
-  #drawn(no) {
-    div:has(> div > div > article) {
-      position: relative;
+			&:nth-child(2n)::before {
+				border-image: var(--squiggly-border-1);
+			}
+			&:nth-child(2n)::after {
+				border-image: var(--squiggly-border-2);
+			}
+			&:nth-child(2n + 1)::before {
+				border-image: var(--squiggly-border-2);
+			}
+			&:nth-child(2n + 1)::after {
+				border-image: var(--squiggly-border-1);
+			}
+		}
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: 2px; left: 2px; right: 2px; bottom: 2px;
-        pointer-events: none;
-        z-index: 10;
-        border: 10px solid transparent;
-      }
+		@keyframes border-swap {
+			0%,
+			50% {
+				opacity: 1;
+			}
+			51%,
+			100% {
+				opacity: 0;
+			}
+		}
+	}
 
-      &:nth-child(2n)::before   { border-image: var(--squiggly-border-1); }
-      &:nth-child(2n+1)::before { border-image: var(--squiggly-border-2); }
-    }
-  }
-	
-  * {
-    text-transform: lowercase;
-    font-family: "Coming Soon", "Comic Sans MS", cursive !important;
-  }
-  
-  main > div > div > div > div::after {
-    content: '';
-    position: absolute;
-    top: -0.5em;
-    left: -0.5em;
-    right: -0.5em;
-    bottom: -0.5em;
+	#drawn(no) {
+		div:has( > div > div > article) {
+			position: relative;
 
-    border-image: var(--squiggly-border-3);
-    pointer-events: none;
-  }
+			&::before {
+				content: '';
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				right: 2px;
+				bottom: 2px;
+				pointer-events: none;
+				z-index: 10;
+				border: 10px solid transparent;
+			}
 
-  article { border: none !important; }
+			&:nth-child(2n)::before {
+				border-image: var(--squiggly-border-1);
+			}
+			&:nth-child(2n + 1)::before {
+				border-image: var(--squiggly-border-2);
+			}
+		}
+	}
 
-  a[aria-label="Post"] {
-    filter: var(--fuckup);
-  }
+	* {
+		text-transform: lowercase;
+		font-family: "Coming Soon", "Comic Sans MS", cursive !important;
+	}
 
-  a, a:not([aria-label="Post"]) > * {
-    color: var(--hd-blue) !important;
-  }
+	main > div > div > div > div::after {
+		content: '';
+		position: absolute;
+		top: -0.5em;
+		left: -0.5em;
+		right: -0.5em;
+		bottom: -0.5em;
 
-  div:has(> img[src^="https://pbs.twimg.com/profile_images/"]) > div {
-    position: relative;
+		border-image: var(--squiggly-border-3);
+		pointer-events: none;
+	}
 
-    border-radius: 100%;
-    border: 2px solid black;
-  }
+	article {
+		border: none !important;
+	}
 
-  /* Home icon */
-  a[href="/home"] > div > div:first-child {
-    background-image: var(--home-icon);
-    background-size: 100% 100%;
+	a[aria-label="Post"] {
+		filter: var(--fuckup);
+	}
 
-    & svg {
-      visibility: hidden;
-    }
-  }
-  
-  div[data-testid="tweetPhoto"]::after,
-  article div[role="link"]::after
-  {
-    content: '';
-    position: absolute;
+	a,
+	a:not([aria-label="Post"]) > * {
+		color: var(--hd-blue) !important;
+	}
 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	div:has( > img[src^="https://pbs.twimg.com/profile_images/"]) > div {
+		position: relative;
 
-    pointer-events: none;
+		&::after {
+			content: '';
+			position: absolute;
 
-    border-radius: 16px;
-  }
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
 
-  div[data-testid="tweetPhoto"]::after { border: 4px solid black; }
-  article div[role="link"]::after { border: 2px solid black; }
+			border-radius: 100%;
+			border: 2px solid black;
 
-  button[data-testid="tweetButtonInline"] { filter: var(--fuckup); }
+			pointer-events: none;
+		}
+	}
 
-  div[role="group"] button > * { color: black !important; }
+	/* Home icon */
+	a[href="/home"] > div > div:first-child {
+		background-image: var(--home-icon);
+		background-size: 100% 100%;
 
-  div:has(> div[data-testid="GrokDrawerHeader"]), div[data-testid="chat-drawer-main"] { box-shadow: none; }
-  div:has(> div[data-testid="GrokDrawerHeader"]), div[data-testid="chat-drawer-main"] > div {
-    border: none;
-    border-image: var(--squiggly-border-1);
-  }
+		& svg {
+			visibility: hidden;
+		}
+	}
 
-  div[data-testid="primaryColumn"] {
-    border-left-width: 0 !important;
-    border-right-width: 0 !important;
-  }
+	div[data-testid="tweetPhoto"]::after,
+	article div[role="link"]::after {
+		content: '';
+		position: absolute;
 
-  nav div[role="tab"] div:has(> span) > div,
-  nav div[role="presentation"] div:has(> span) > div
-  {
-    background-color: var(--hd-blue) !important;
-  }
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		pointer-events: none;
+
+		border-radius: 16px;
+	}
+
+	div[data-testid="tweetPhoto"]::after {
+		border: 4px solid black;
+	}
+	article div[role="link"]::after {
+		border: 2px solid black;
+	}
+
+	button[data-testid="tweetButtonInline"] {
+		filter: var(--fuckup);
+	}
+
+	div[role="group"] button > * {
+		color: black !important;
+	}
+
+	div:has( > div[data-testid="GrokDrawerHeader"]),
+	div[data-testid="chat-drawer-main"] {
+		box-shadow: none;
+	}
+	div:has( > div[data-testid="GrokDrawerHeader"]),
+	div[data-testid="chat-drawer-main"] > div {
+		border: none;
+		border-image: var(--squiggly-border-1);
+	}
+
+	div[data-testid="primaryColumn"] {
+		border-left-width: 0 !important;
+		border-right-width: 0 !important;
+	}
+
+	nav div[role="tab"] div:has( > span) > div,
+	nav div[role="presentation"] div:has( > span) > div {
+		background-color: var(--hd-blue) !important;
+	}
 }
 
 @-moz-document url("https://x.com/home") {
-  /* Post box */
-  div[aria-label="Home timeline"] > div:nth-child(3) {
-    position: relative;
+	/* Post box */
+	div[aria-label="Home timeline"] > div:nth-child(3) {
+		position: relative;
 
-    --deg: 1deg;
-    animation: rotator 2.5s steps(1) infinite;
+		--deg: 1deg;
+		animation: rotator 2.5s steps(1) infinite;
 
-    z-index: 100;
+		z-index: 100;
 
-    &::after {
-      content: '';
-      position: absolute;
+		&::after {
+			content: '';
+			position: absolute;
 
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
 
-      z-index: 20;
+			z-index: 20;
 
-      border-image: var(--squiggly-border-3);
-      pointer-events: none;
-    }
-  }
-  
-  @keyframes rotator {
-    0%, 50% { transform: rotateZ(var(--deg)); }
-    51%, 100% { transform: rotateZ(calc(-1 * var(--deg))); }
-  }
+			border-image: var(--squiggly-border-3);
+			pointer-events: none;
+		}
+	}
 
-  div[aria-label="Trending"] > div {
-    & form > div > div {
-      border: none !important;
-      border-image: var(--squiggly-border-1) !important;
-    }
+	@keyframes rotator {
+		0%,
+		50% {
+			transform: rotateZ(var(--deg));
+		}
+		51%,
+		100% {
+			transform: rotateZ(calc(-1 * var(--deg)));
+		}
+	}
 
-    & > div:nth-child(n + 3):not(:last-child):not(:has(aside)),
-	& > div > div:has(aside) {
-      border: none !important;
-      border-image: var(--squiggly-border-2) !important;
-    }
-  }
+	div[aria-label="Trending"] > div {
+		& form > div > div {
+			border: none !important;
+			border-image: var(--squiggly-border-1) !important;
+		}
+
+		& > div:nth-child(n + 3):not(:last-child):not(:has(aside)),
+		& > div > div:has(aside) {
+			border: none !important;
+			border-image: var(--squiggly-border-2) !important;
+		}
+	}
 }
 
-@-moz-document url-prefix("https://x.com/explore/tabs/"), url-prefix("https://x.com/explore") {
-  div[aria-label="Trending"] > div > div:nth-child(2), 
-  div[aria-label="Trending"] > div > div:nth-child(3) {
-    border: none !important;
-    border-image: var(--squiggly-border-2) !important;
-  }
+@-moz-document url-prefix("https://x.com/explore/tabs/"),
+url-prefix("https://x.com/explore") {
+	div[aria-label="Trending"] > div > div:nth-child(2),
+	div[aria-label="Trending"] > div > div:nth-child(3) {
+		border: none !important;
+		border-image: var(--squiggly-border-2) !important;
+	}
 
-  form[aria-label="Search"] > div > div {
-    border: none !important;
-    border-image: var(--squiggly-border-2) !important;
-  }
+	form[aria-label="Search"] > div > div {
+		border: none !important;
+		border-image: var(--squiggly-border-2) !important;
+	}
 
-  div[aria-label="Timeline: Explore"] > div > div {
-    & div[data-testid="trend"] {
-      &::before, &::after {
-        content: '';
-        position: absolute;
+	div[aria-label="Timeline: Explore"] > div > div {
+		& div[data-testid="trend"] {
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
 
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
 
-        pointer-events: none;
-      }
+				pointer-events: none;
+			}
 
-      &::before { animation: border-swap 2.5s steps(1) infinite; }
-            &::after  { animation: border-swap 2.5s steps(1) infinite reverse; }
-    }
+			&::before {
+				animation: border-swap 2.5s steps(1) infinite;
+			}
+			&::after {
+				animation: border-swap 2.5s steps(1) infinite reverse;
+			}
+		}
 
-    &:nth-child(3n) div[data-testid="trend"]::before {
-      border-image: var(--squiggly-line-1) !important;
-      border-image-slice: 0 0 100 0 !important;
-    }
+		&:nth-child(3n) div[data-testid="trend"]::before {
+			border-image: var(--squiggly-line-1) !important;
+			border-image-slice: 0 0 100 0 !important;
+		}
 
-    &:nth-child(3n) div[data-testid="trend"]::after {
-      border-image: var(--squiggly-line-2) !important;
-      border-image-slice: 0 0 100 0 !important;
-    }
+		&:nth-child(3n) div[data-testid="trend"]::after {
+			border-image: var(--squiggly-line-2) !important;
+			border-image-slice: 0 0 100 0 !important;
+		}
 
-    &:nth-child(3n+1) div[data-testid="trend"]::before {
-      border-image: var(--squiggly-line-2) !important;
-      border-image-slice: 0 0 100 0 !important;
-    }
+		&:nth-child(3n + 1) div[data-testid="trend"]::before {
+			border-image: var(--squiggly-line-2) !important;
+			border-image-slice: 0 0 100 0 !important;
+		}
 
-    &:nth-child(3n+1) div[data-testid="trend"]::after {
-      border-image: var(--squiggly-line-3) !important;
-      border-image-slice: 0 0 100 0 !important;
-    }
+		&:nth-child(3n + 1) div[data-testid="trend"]::after {
+			border-image: var(--squiggly-line-3) !important;
+			border-image-slice: 0 0 100 0 !important;
+		}
 
-    &:nth-child(3n+2) div[data-testid="trend"]::before {
-      border-image: var(--squiggly-line-3) !important;
-      border-image-slice: 0 0 100 0 !important;
-    }
+		&:nth-child(3n + 2) div[data-testid="trend"]::before {
+			border-image: var(--squiggly-line-3) !important;
+			border-image-slice: 0 0 100 0 !important;
+		}
 
-    &:nth-child(3n+2) div[data-testid="trend"]::after {
-      border-image: var(--squiggly-line-1) !important;
-      border-image-slice: 0 0 100 0 !important;
-    }
-  }
+		&:nth-child(3n + 2) div[data-testid="trend"]::after {
+			border-image: var(--squiggly-line-1) !important;
+			border-image-slice: 0 0 100 0 !important;
+		}
+	}
 }
