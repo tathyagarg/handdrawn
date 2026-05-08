@@ -57,7 +57,7 @@
 			--squiggly-line-1v: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='80'%3E%3Cpath d='M 10 0 C 2 10, 18 18, 10 26 C 2 34, 18 42, 10 50 C 2 58, 18 66, 10 80' stroke='%23000' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
 			--squiggly-line-2v: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='80'%3E%3Cpath d='M 12 2 C 0 8, 20 16, 8 24 C -2 32, 18 40, 10 48 C 2 56, 22 64, 12 72' stroke='%23000' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
 			--squiggly-line-3v: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='80'%3E%3Cpath d='M 8 2 C 16 12, -4 20, 10 30 C 24 40, -2 50, 12 60 C 20 68, 6 74, 10 78' stroke='%23000' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
-			
+
 			--home-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABFCAYAAADzT0AXAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oFBQg3E56fXVQAAAGtSURBVHja7ZrdroQgDISdhvd/vvM2PbebTVwBmdIfSPbO1fI5MwUV176hncfBsihxDsN8iKNa4AGeOFEHvCgKDoBgAAAyARlVxhYonjLEdZBZdBSQlOUayCrZm0HBBhiz1zXJFAkCI2yGsEHQVYKgqlDW+cUARqi9EYLmBc06IN4VbFQFdlvmuxiLTkK5hkQo0vKRARbKdff6YklNkgTGsu4j7AtEg4JFJ0YAAFgJRAOAWFIvEsJ4VbckhTFdI5LCmO6KSA5jGIoUgDHkAGH6MUCe6AyQbMronqxWtcnnPDG4vEV2KBXf3P3MEwxufqKvQZ4i4mrF1PF488/L7g6F4M3zhKwBcwcEwW3y2FVbUWfcfrVUFcgtpDYhPxCk7KbdN2MPM9YTS4cEgGF53i6F4OK3XlhO+q1ClDzxX8eat3nLLoNJ/8NSNcwMCbnCFaLkrwpArgPEPkxDAdGjkGOZAySq/5VhcXFUfBiF6LGM3wH2f8Vp8Wfp7iWLKrVdPUCKKQQMlWRXCCophBLC54nZ12gvJ4lsFmrOVKC7FciyzN/NBJ5+IVI4y+auy97/LnthU4GXq+AAAAAASUVORK5CYII=");
 
 			--color-primary: black;
@@ -239,21 +239,60 @@
 		content: '';
 		position: absolute;
 
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
+		top: -4px;
+		left: -4px;
+		right: -4px;
+		bottom: -4px;
 
 		pointer-events: none;
-
-		border-radius: 16px;
+		z-index: 200;
 	}
 
-	div[data-testid="tweetPhoto"]::after {
-		border: 4px solid var(--color-primary);
+	div:has( > div > div[data-testid="tweetPhoto"]) {
+		border: none !important;
 	}
-	article div[role="link"]::after {
-		border: 2px solid var(--color-primary);
+
+	div[data-testid="tweetPhoto"] {
+		overflow: visible;
+		margin: 8px !important;
+
+		&::after {
+			border-image: var(--squiggly-border-1);
+		}
+	}
+
+	article div[role="link"] {
+		border: none;
+		overflow: visible;
+
+		&:not(:has(div[data-testid="tweetPhoto"])) {
+			border-image: var(--squiggly-border-1);
+		}
+
+		&:has(div[data-testid="tweetPhoto"]) {
+			& div[data-testid="tweetPhoto"] {
+				margin: 8px;
+
+				&::after {
+					border: 0;
+					border-image: var(--squiggly-border-2);
+
+					top: -4px;
+					left: -4px;
+					right: -4px;
+					bottom: -4px;
+				}
+			}
+
+			&::after {
+				border-image: var(--squiggly-border-1);
+				z-index: 200;
+			}
+		}
+	}
+	
+	div:has(a div[data-testId="tweetPhoto"]) {
+		border: none;
 	}
 
 	button[data-testid="tweetButtonInline"] {
@@ -268,7 +307,7 @@
 	button[data-testid="chat-drawer-main"] {
 		box-shadow: none !important;
 	}
-	
+
 	button[data-testid="GrokDrawerHeader"],
 	button[data-testid="chat-drawer-main"] {
 		border: none;
