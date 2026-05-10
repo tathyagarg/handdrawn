@@ -1,37 +1,60 @@
-@border-1-path: "M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10";
+@border-1-path: "M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10, 75 30, 77 50 C 78 62, 77 70, 76 76 M 76 76 C 60 78, 40 75, 20 77 C 12 78, 6 77, 4 76 M 4 76 C 2 60, 5 40, 3 20 C 2 12, 3 6, 4 4";
+@border-2-path: "M 4 4 C 30 2, 50 6, 76 4 M 76 4 C 78 14, 74 38, 76 76 M 76 76 C 62 78, 38 74, 22 78 C 14 80, 6 76, 4 76 M 4 76 C 2 55, 6 30, 4 4";
+@border-3-path: "M 4 6 C 18 0, 34 10, 48 4 C 62 -2, 70 8, 76 6 M 76 6 C 80 22, 72 34, 76 50 C 80 66, 70 72, 76 76 M 76 76 C 58 80, 44 70, 30 76 C 16 82, 10 72, 4 76 M 4 76 C 0 58, 8 46, 4 30 C 0 14, 10 10, 4 6";
+
+@line-1-path: "M 0 10 C 10 2, 18 18, 26 10 C 34 2, 42 18, 50 10 C 58 2, 66 18, 80 10";
+@line-1v-path: "M 10 0 C 2 10, 18 18, 10 26 C 2 34, 18 42, 10 50 C 2 58, 18 66, 10 80";
+
+@line-2-path: "M 0 12 C 8 -2, 16 20, 24 8 C 32 -2, 40 18, 48 10 C 56 2, 64 22, 80 12";
+@line-2v-path: "M 12 0 C -2 8, 20 16, 8 24 C -2 32, 18 40, 10 48 C 2 56, 22 64, 12 80";
+
+@line-3-path: "M 0 8 C 12 16, 20 -4, 30 10 C 40 24, 50 -2, 60 12 C 68 20, 74 6, 80 10";
+@line-3v-path: "M 8 0 C 16 12, -4 20, 10 30 C 24 40, -2 50, 12 60 C 20 68, 6 74, 10 80";
 
 .make-border(@path, @stroke) {
-  @result: ~"url(\"data:image/svg+xml,${
-    encodeURIComponent(
-      `<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'>
-        <path
-          d='${@{path}}'
-          stroke='${@{stroke}}'
-          stroke-width='2'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          fill='none'/>
-      </svg>`
-    )
-  }\") 10 / 10px / 0 stretch";
+	@result: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='@{path}' stroke='@{stroke}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") 10 / 10px / 0 stretch;
 }
 
 .borders(@color) {
-  .make-border(@border-1-path, @color);
+	.make-border(@border-1-path,
+	@color);
+	@squiggly-border-1: @result;
 
-  @squiggly-border-1: @result;
+	.make-border(@border-2-path,
+	@color);
+	@squiggly-border-2: @result;
+
+	.make-border(@border-3-path,
+	@color);
+	@squiggly-border-3: @result;
+
+	.make-border(@line-1-path,
+	@color);
+	@squiggly-line-1: @result;
+
+	.make-border(@line-1v-path,
+	@color);
+	@squiggly-line-1v: @result;
+
+	.make-border(@line-2-path,
+	@color);
+	@squiggly-line-2: @result;
+
+	.make-border(@line-2v-path,
+	@color);
+	@squiggly-line-2v: @result;
+
+	.make-border(@line-3-path,
+	@color);
+	@squiggly-line-3: @result;
+
+	.make-border(@line-3v-path,
+	@color);
+	@squiggly-line-3v: @result;
 }
 
 #lib {
-  .defaults() {
-    .borders(if(@theme = dark, #ffe, #001));
-
-    border-image: @squiggly-border-1;
-  }
-}
-
-@theme: light;
-
-div {
-  #lib.defaults();
+	.defaults() {
+		.borders(if(@theme =dark, "%23ffe", "%23001"));
+	}
 }
