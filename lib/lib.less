@@ -1,7 +1,7 @@
-@border-1-path: "M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10, 75 30, 77 50 C 78 62, 77 70, 76 76 M 76 76 C 60 78, 40 75, 20 77 C 12 78, 6 77, 4 76 M 4 76 C 2 60, 5 40, 3 20 C 2 12, 3 6, 4 4";
+@border-1-path: "M 6 4 C 20 2, 40 5, 60 3 C 68 2, 74 3, 76 4 M 76 4 C 78 10";
 
 .make-border(@path, @stroke) {
-  @return: ~`"url(\"data:image/svg+xml,${
+  @result: ~"url(\"data:image/svg+xml,${
     encodeURIComponent(
       `<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'>
         <path
@@ -10,26 +10,28 @@
           stroke-width='2'
           stroke-linecap='round'
           stroke-linejoin='round'
-          fill='none' />
-      </svg>`,
+          fill='none'/>
+      </svg>`
     )
-  }\") 10 / 10px / 0 stretch"`;
+  }\") 10 / 10px / 0 stretch";
+}
+
+.borders(@color) {
+  .make-border(@border-1-path, @color);
+
+  @squiggly-border-1: @result;
 }
 
 #lib {
   .defaults() {
-    color-scheme: if(@theme = dark, dark, light);
+    .borders(if(@theme = dark, #ffe, #001));
 
-    .colors();
-    .borders(@color);
+    border-image: @squiggly-border-1;
   }
+}
 
-  .colors() {
-    @color: if(@theme = dark, #ffe, #001);
-  }
+@theme: light;
 
-  .borders(@color) {
-    .make-border(@border-1-path, @color);
-    --squiggly-border-1: @return;
-  }
+div {
+  #lib.defaults();
 }
