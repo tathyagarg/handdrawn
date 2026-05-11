@@ -15,21 +15,13 @@
 ==/UserStyle== */
 
 @import "https://handdrawn.arson.dev/lib/lib.less";
+
 @-moz-document domain("x.com") {
 	#lib.defaults();
 	
-	@font-face {
-		font-family: 'Coming Soon';
-		font-style: normal;
-		font-weight: 400;
-		font-display: swap;
-		src: url(https://fonts.gstatic.com/s/comingsoon/v20/qWcuB6mzpYL7AJ2VfdQR1t-VWDnRsDkg.woff2) format('woff2');
-	}
-
 	#root(@theme);
 
 	#root(dark) {
-
 		:root {
 			--home-icon: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABFCAYAAADzT0AXAAACCElEQVR4nO2awY7DIAxEM6j//8uzqrSHqCoEAza26Zx6SBPzMjYmgGuTSLLnOgC4DFUuxzB2aAsQiROs4ZkD4ZcBPqWFJZTtDsENxvv3bqfAqzNYAaBdZLc7xJvUHcLJNz1Sc9w6hAts/+1azXqiBoQLg65B0QCjAoSNQK07T6kQCQQNZp4SyRVo9CmugHDz2mTl84u2M96afcZsHBJBKwAog9BK0eWzDP61+r7fnqNx36VAYDyl1p43kz5DA6BxO20ZU8kAo6YRp5RI0+uIpDGXLDDQKOaS2IeX4BFTpSfekg3GWzNOKdlgzMZYMsJoxfrkkpIVxiiUkhlGS7Vxdk27CA5DUmRLdhhSIWJLPqqecgDPRxN2QDlu5w4P9QSiPh+xHPI5tnv8tXG/roPE2db9RL2e0oLOl/2r9VgTeAMSrYbU4m+95KNqSM/65kggLUgiICS5Km28TvfqDuGCotzqJ1KcIJqV5sz36BAAom7W6suWloY/Mo9IYnWrPeJPmc0y+B+cdJA964/jDt1ZSgQEATtVqX6Lux1AEMhZ6Xf/pfqlzId+QLLsy7AjfdVPEI0qUu0xbd0jKFQNwUT69v5XDQic1p5UrTsjL+68qRfmMUB6FRYIBtL3+K1MWJx1jyRXnSqDNnTijarL0TQsVU+8L08uoOB+Wg40++rOICmUuqheN/Wm9x9DCliVlnDPqQAAAABJRU5ErkJggg==");
 
@@ -43,17 +35,6 @@
 
 			--color-primary: black;
 		}
-	}
-
-	:root {
-		/*
-      adds a trippy effect to whatever this is applied to!
-      use sparingly and with caution - this is very compute heavy!
-    */
-		--fuckup: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><defs><filter id='handdrawn' x='-5%25' y='-20%25' width='110%25' height='140%25'><feTurbulence type='fractalNoise' baseFrequency='0.04 0.07' numOctaves='3' seed='2' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='3' xChannelSelector='R' yChannelSelector='G'/></filter></defs></svg>#handdrawn");
-
-		/* Change this to be unique! */
-		--hd-blue: #00f;
 	}
 
 	#drawn(@animateBorders);
@@ -136,11 +117,6 @@
 		}
 	}
 
-	* {
-		text-transform: lowercase;
-		font-family: "Coming Soon", "Comic Sans MS", cursive !important;
-	}
-
 	main > div > div > div > div::after {
 		content: '';
 		position: absolute;
@@ -158,12 +134,12 @@
 	}
 
 	a[aria-label="Post"] {
-		filter: var(--fuckup);
+		filter: @fuckup;
 	}
 
 	a,
 	a:not([aria-label="Post"]) > * {
-		color: var(--hd-blue) !important;
+		color: @hd-blue !important;
 	}
 
 	div:has( > img[src^="https://pbs.twimg.com/profile_images/"]) > div {
@@ -277,7 +253,7 @@
 	}
 
 	button[data-testid="tweetButtonInline"] {
-		filter: var(--fuckup);
+		filter: @fuckup;
 	}
 
 	div[role="group"] button > * {
@@ -302,7 +278,7 @@
 
 	nav div[role="tab"] div:has( > span) > div,
 	nav div[role="presentation"] div:has( > span) > div {
-		background-color: var(--hd-blue) !important;
+		background-color: @hd-blue !important;
 	}
 }
 
