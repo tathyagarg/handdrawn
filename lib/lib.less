@@ -17,35 +17,54 @@
 
 .borders(@color) {
 	.make-border(@border-1-path, @color);
-	@squiggly-border-1: @result;
+	@hd-border-1: @result;
 
 	.make-border(@border-2-path, @color);
-	@squiggly-border-2: @result;
+	@hd-border-2: @result;
 
 	.make-border(@border-3-path, @color);
-	@squiggly-border-3: @result;
+	@hd-border-3: @result;
 
 	.make-border(@line-1-path, @color);
-	@squiggly-line-1: @result;
+	@hd-line-1: @result;
 
 	.make-border(@line-1v-path, @color);
-	@squiggly-line-1v: @result;
+	@hd-line-1v: @result;
 
 	.make-border(@line-2-path, @color);
-	@squiggly-line-2: @result;
+	@hd-line-2: @result;
 
 	.make-border(@line-2v-path, @color);
-	@squiggly-line-2v: @result;
+	@hd-line-2v: @result;
 
 	.make-border(@line-3-path, @color);
-	@squiggly-line-3: @result;
+	@hd-line-3: @result;
 
 	.make-border(@line-3v-path, @color);
-	@squiggly-line-3v: @result;
+	@hd-line-3v: @result;
+}
+
+.font() {
+  @font-face {
+		font-family: 'Coming Soon';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url(https://fonts.gstatic.com/s/comingsoon/v20/qWcuB6mzpYL7AJ2VfdQR1t-VWDnRsDkg.woff2) format('woff2');
+	}
+
+  * {
+    font-family: 'Coming Soon', cursive, sans-serif !important;
+  }
 }
 
 #lib {
 	.defaults() {
 		.borders(if(@theme =dark, "%23ffe", "%23001"));
+    .font();
+
+    @hd-drawn: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><defs><filter id='handdrawn' x='-5%25' y='-20%25' width='110%25' height='140%25'><feTurbulence type='fractalNoise' baseFrequency='0.04 0.07' numOctaves='3' seed='2' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='3' xChannelSelector='R' yChannelSelector='G'/></filter></defs></svg>#handdrawn");
+
+    @hd-blue: if(@theme = dark, "#06f", "#9cf");
 	}
 }
