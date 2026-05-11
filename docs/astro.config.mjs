@@ -14,6 +14,9 @@ export default defineConfig({
           items: [{ autogenerate: { directory: 'getting-started' } }],
         }
       ],
+      logo: {
+        src: './src/assets/logo.png',
+      }
     }),
   ],
 });
