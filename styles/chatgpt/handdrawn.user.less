@@ -10,8 +10,62 @@
 @license MIT
 
 @preprocessor less
+@var select animateBorders "Animate Borders" ["yes:Yes*", "no:No"]
+@var select theme "Theme" ["dark:Dark*", "light:Light"]
 ==/UserStyle== */
 
-@-moz-document domain("chatgpt.com") {
+@import "https://handdrawn.arson.dev/lib/lib.less";
 
+@-moz-document domain("chatgpt.com") {
+	#lib.defaults();
+	
+	form > div:nth-child(2) > div {
+		#lib.rocking(1deg, 2.5s);
+	
+		border-radius: 0 !important;
+		border-image: @hd-border-2;
+	}
+
+	div[data-testid="use-case-prompt-chips"] button {
+		border-radius: 0 !important;
+		border: 0 solid black;
+	
+		&:nth-child(3n) { border-image: @hd-border-1 !important; }
+		&:nth-child(3n+1) { border-image: @hd-border-2 !important; }
+		&:nth-child(3n+2) { border-image: @hd-border-3 !important; }
+	}
+
+	.user-message-bubble-color {
+		border-radius: 0;
+
+		&::after {
+			content: '';
+			position: absolute;
+		
+			top: -2px;
+			left: -2px;
+			right: -2px;
+			bottom: -2px;
+		
+			border-image: @hd-border-1 !important;
+		
+			pointer-events: none;
+		}
+	}
+
+	.group\/imagegen-image {
+		border-radius: 0;
+	
+		& ::after {
+			content: '';
+			position: absolute;
+		
+			top: -2px;
+			left: -2px;
+			right: -2px;
+			bottom: -2px;
+		
+			border-image: @hd-border-2;
+		}
+	}
 }
