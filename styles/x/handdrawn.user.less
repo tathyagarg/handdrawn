@@ -67,16 +67,16 @@
 			}
 
 			&:nth-child(2n)::before {
-				border-image: @squiggly-border-1;
+				border-image: @hd-border-1;
 			}
 			&:nth-child(2n)::after {
-				border-image: @squiggly-border-2;
+				border-image: @hd-border-2;
 			}
 			&:nth-child(2n + 1)::before {
-				border-image: @squiggly-border-2;
+				border-image: @hd-border-2;
 			}
 			&:nth-child(2n + 1)::after {
-				border-image: @squiggly-border-1;
+				border-image: @hd-border-1;
 			}
 		}
 
@@ -109,10 +109,10 @@
 			}
 
 			&:nth-child(2n)::before {
-				border-image: @squiggly-border-1;
+				border-image: @hd-border-1;
 			}
 			&:nth-child(2n + 1)::before {
-				border-image: @squiggly-border-2;
+				border-image: @hd-border-2;
 			}
 		}
 	}
@@ -125,7 +125,7 @@
 		right: -0.5em;
 		bottom: -0.5em;
 
-		border-image: @squiggly-border-3;
+		border-image: @hd-border-3;
 		pointer-events: none;
 	}
 
@@ -134,7 +134,7 @@
 	}
 
 	a[aria-label="Post"] {
-		filter: @fuckup;
+		filter: @hd-drawn;
 	}
 
 	a,
@@ -174,7 +174,7 @@
 			right: 0;
 			bottom: 0;
 
-			border-image: @squiggly-line-1v !important;
+			border-image: @hd-line-1v !important;
 			border-image-slice: 0 100 0 0 !important;
 
 			min-width: 15px;
@@ -214,7 +214,7 @@
 		margin: 8px !important;
 
 		&::after {
-			border-image: @squiggly-border-1;
+			border-image: @hd-border-1;
 		}
 	}
 
@@ -223,7 +223,7 @@
 		overflow: visible;
 
 		&:not(:has(div[data-testid="tweetPhoto"])) {
-			border-image: @squiggly-border-1;
+			border-image: @hd-border-1;
 		}
 
 		&:has(div[data-testid="tweetPhoto"]) {
@@ -232,7 +232,7 @@
 
 				&::after {
 					border: 0;
-					border-image: @squiggly-border-2;
+					border-image: @hd-border-2;
 
 					top: -4px;
 					left: -4px;
@@ -242,7 +242,7 @@
 			}
 
 			&::after {
-				border-image: @squiggly-border-1;
+				border-image: @hd-border-1;
 				z-index: 200;
 			}
 		}
@@ -253,7 +253,7 @@
 	}
 
 	button[data-testid="tweetButtonInline"] {
-		filter: @fuckup;
+		filter: @hd-drawn;
 	}
 
 	div[role="group"] button > * {
@@ -268,7 +268,7 @@
 	button[data-testid="GrokDrawerHeader"],
 	button[data-testid="chat-drawer-main"] {
 		border: none;
-		border-image: @squiggly-border-1;
+		border-image: @hd-border-1;
 	}
 
 	div[data-testid="primaryColumn"] {
@@ -305,7 +305,7 @@
 
 			z-index: 20;
 
-			border-image: @squiggly-border-3;
+			border-image: @hd-border-3;
 			pointer-events: none;
 		}
 	}
@@ -324,13 +324,13 @@
 	div[aria-label="Trending"] > div {
 		& form > div > div {
 			border: none !important;
-			border-image: @squiggly-border-1 !important;
+			border-image: @hd-border-1 !important;
 		}
 
 		& > div:nth-child(n + 3):not(:last-child):not(:has(aside)),
 		& > div > div:has(aside) {
 			border: none !important;
-			border-image: @squiggly-border-2 !important;
+			border-image: @hd-border-2 !important;
 		}
 	}
 }
@@ -341,12 +341,12 @@
 	div[aria-label="Trending"] > div > div:nth-child(2),
 	div[aria-label="Trending"] > div > div:nth-child(3) {
 		border: none !important;
-		border-image: @squiggly-border-2 !important;
+		border-image: @hd-border-2 !important;
 	}
 
 	form[aria-label="Search"] > div > div {
 		border: none !important;
-		border-image: @squiggly-border-2 !important;
+		border-image: @hd-border-2 !important;
 	}
 
 	#drawn(@animateBorders);
@@ -376,32 +376,32 @@
 			}
 
 			&:nth-child(3n) div[data-testid="trend"]::before {
-				border-image: @squiggly-line-1 !important;
+				border-image: @hd-line-1 !important;
 				border-image-slice: 0 0 100 0 !important;
 			}
 
 			&:nth-child(3n) div[data-testid="trend"]::after {
-				border-image: @squiggly-line-2 !important;
+				border-image: @hd-line-2 !important;
 				border-image-slice: 0 0 100 0 !important;
 			}
 
 			&:nth-child(3n + 1) div[data-testid="trend"]::before {
-				border-image: @squiggly-line-2 !important;
+				border-image: @hd-line-2 !important;
 				border-image-slice: 0 0 100 0 !important;
 			}
 
 			&:nth-child(3n + 1) div[data-testid="trend"]::after {
-				border-image: @squiggly-line-3 !important;
+				border-image: @hd-line-3 !important;
 				border-image-slice: 0 0 100 0 !important;
 			}
 
 			&:nth-child(3n + 2) div[data-testid="trend"]::before {
-				border-image: @squiggly-line-3 !important;
+				border-image: @hd-line-3 !important;
 				border-image-slice: 0 0 100 0 !important;
 			}
 
 			&:nth-child(3n + 2) div[data-testid="trend"]::after {
-				border-image: @squiggly-line-1 !important;
+				border-image: @hd-line-1 !important;
 				border-image-slice: 0 0 100 0 !important;
 			}
 		}
@@ -425,17 +425,17 @@
 			}
 
 			&:nth-child(3n) div[data-testid="trend"]::before {
-				border-image: @squiggly-line-1 !important;
+				border-image: @hd-line-1 !important;
 				border-image-slice: 0 0 100 0 !important;
 			}
 
 			&:nth-child(3n + 1) div[data-testid="trend"]::before {
-				border-image: @squiggly-line-2 !important;
+				border-image: @hd-line-2 !important;
 				border-image-slice: 0 0 100 0 !important;
 			}
 
 			&:nth-child(3n + 2) div[data-testid="trend"]::before {
-				border-image: @squiggly-line-3 !important;
+				border-image: @hd-line-3 !important;
 				border-image-slice: 0 0 100 0 !important;
 			}
 		}
