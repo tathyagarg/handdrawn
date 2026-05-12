@@ -1,0 +1,27 @@
+name: Build Stylus Export
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["docs/**"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+
+      - name: Generate Stylus export
+        run: deno task ci:stylus-import
+
+      - name: Upload release artifact
+        run: gh release upload --clobber all-styles ./dist/import.json
+        env:
+          GH_TOKEN: ${{ github.token }}
